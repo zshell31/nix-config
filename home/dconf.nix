@@ -9,20 +9,16 @@ in
     "org/gnome/desktop/input-sources" = {
       per-window = false;
       sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple ["xkb" "ru" ]) ];
-      xkb-options = [ "eurosign:e" "grp:lalt_lshift_toggle" ];
-    };
-
-    "org/gnome/desktop/wm/keybindings" = {
-      switch-input-source = [];
-      switch-input-source-backward = [];
+      xkb-options = [ "eurosign:e" ];
     };
 
     "org/gnome/desktop/interface" = {
-      document-font-name = "Fira Code 13";
+      document-font-name = "Fira Code 12";
       font-antialiasing = "grayscale";
       font-hinting = "slight";
-      font-name = "Fira Code 13";
-      monospace-font-name = "Fira Code 13";
+      font-name = "Fira Code 12";
+      monospace-font-name = "Fira Code 12";
+      show-battery-percentage = true;
     };
 
     "org/gnome/desktop/peripherals/keyboard" = {
@@ -34,19 +30,28 @@ in
       two-finger-scrolling-enabled = true;
     };
 
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-input-source = [ "<Super>space" ];
+      switch-input-source-backward = [ "<Shift><Super>space" ];
+     };
+
     "org/gnome/desktop/privacy" = {
       disable-microphone = true;
     };
 
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
-      titlebar-font = "Fira Code 13";
+      titlebar-font = "Fira Code 12";
+    };
+
+    "org/gnome/nautilus/icon-view" = {
+      default-zoom-level = "small";
     };
 
     "org/gnome/shell" = {
       disabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
       enabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
-      favorite-apps = [ "org.gnome.Terminal.desktop" "firefox.desktop" ];
+      favorite-apps = [ "org.gnome.Terminal.desktop" "firefox.desktop" "org.gnome.Nautilus.desktop" ];
     };
 
     "org/gnome/shell/extensions/dash-to-panel" = {
