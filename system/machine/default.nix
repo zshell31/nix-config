@@ -9,9 +9,36 @@
   boot = {
     # kernelPackages = pkgs.linuxPackages_latest;
 
-    # Use the systemd-boot EFI boot loader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    # See https://kennyballou.com/blog/2019/07/nixos-md-luks-lvm-setup/index.html
+    loader = {
+      systemd-boot = {
+        enable = true;
+	editor = false;
+      };
+
+      efi.canTouchEfiVariables = false;
+
+      grub = {
+	enable = true;
+	copyKernels = true;
+	efiInstallAsRemovable = true;
+	efiSupport = true;
+	fsIdentifier = "uuid";
+	splashMode = "stretch";
+	version = 2;
+	device = "nodev";
+	extraEntries = ''
+	  menuentry "Reboot" {
+	    reboot
+	  }
+
+	  menuentry "Poweroff" {
+	    halt
+	  }
+	'';
+      };
+    };
+
   };
 
   networking = {
