@@ -5,18 +5,17 @@
     ./bat.nix
     ./dconf.nix
     ./gnome_terminal.nix
+    ./tmux.nix
     ./zsh.nix
   ];
 
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
-    gnome-terminal.enable = true;
-    
-    zsh.enable = true;
-
     bat.enable = true;
+    gnome-terminal.enable = true;
+    tmux.enable = true;
+    zsh.enable = true;
   };
 
   fonts.fontconfig.enable = true;
@@ -42,5 +41,6 @@
     rustup
 
     unzip
+    xclip
   ];
 }

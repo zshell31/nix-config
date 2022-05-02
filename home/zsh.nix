@@ -15,10 +15,14 @@ let
     } + "/${draculaTheme}";
 in
 {
+  home.packages = with pkgs; [
+    oh-my-zsh
+  ];
+
   programs.zsh = {
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
-
+    
     shellAliases = {
       c = "clear";
       ll = "ls -lah";
@@ -32,6 +36,9 @@ in
     };
 
     initExtraFirst = ''
+      ZSH="${pkgs.oh-my-zsh}/share/oh-my-zsh"
+      ZSH_CACHE_DIR="${config.xdg.cacheHome}/oh-my-zsh"
+
       if [[ ! -d "${customDir}" ]]; then
 	mkdir -p "${customDir}"
       fi
@@ -47,18 +54,22 @@ in
       fi
     '';
 
-    oh-my-zsh = {
-      enable = true;
+    initExtra = ''
+      plugins=(
+        git
+        vi-mode
+        colored-man-pages
+      )
+      if [[ -z "$SSH_CONNECTION" ]]; then
+        plugins+=(tmux)
+        ZSH_TMUX_AUTOCONNECT=true
+        ZSH_TMUX_AUTOSTART=true
+      fi
 
-      custom = customDir;
+      ZSH_CUSTOM="$HOME/zsh_custom"
+      ZSH_THEME="dracula"
 
-      plugins = [
-        "git"
-	"vi-mode"
-	"colored-man-pages"
-      ];
-
-      theme = "dracula";
-    };
+      source $ZSH/oh-my-zsh.sh
+    '';
   };
 }
