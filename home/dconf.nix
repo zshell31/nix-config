@@ -77,7 +77,7 @@ in
       panel-sizes = "{\"0\":33}";
       status-icon-padding = -1;
       trans-bg-color = "#241f31";
-      trans-panel-opacity = 0.3;
+      trans-panel-opacity = 0.7;
       trans-use-custom-bg = true;
       trans-use-custom-opacity = true;
       tray-padding = -1;

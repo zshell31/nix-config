@@ -62,6 +62,7 @@ in
       )
       if [[ -z "$SSH_CONNECTION" ]]; then
         plugins+=(tmux)
+        ZSH_TMUX_CONFIG="${config.xdg.configHome}/tmux/tmux.conf"
         ZSH_TMUX_AUTOCONNECT=true
         ZSH_TMUX_AUTOSTART=true
       fi
