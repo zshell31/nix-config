@@ -23,7 +23,6 @@
     extraConfig = ''
       set -g status-position top
       set -g set-titles on
-      set -g mouse on
       set -g status-interval 5
       set -g base-index 1
       set -g pane-base-index 0

@@ -1,4 +1,4 @@
-{ system, inputs, nixpkgs, home-manager, ... }:
+{ system, nixpkgs, home-manager, ... }:
 
 let
   username = "evgeny";

@@ -9,7 +9,6 @@ let
     dive
     dracula-theme
     duf
-    dust
     exa
     fd
     gimp
