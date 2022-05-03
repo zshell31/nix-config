@@ -29,6 +29,7 @@ in
       vim = "nvim";
       hms = "home-manager switch";
       cat = "bat";
+      j = "z";
     };
 
     localVariables = {

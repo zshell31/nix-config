@@ -1,5 +1,45 @@
 { config, lib, pkgs, ... }:
 
+let
+  defaultPkgs = with pkgs; [
+    gnome3.gnome-tweak-tool
+    gnomeExtensions.dash-to-panel
+    gnome.dconf-editor
+    docker-compose
+    dive
+    dracula-theme
+    duf
+    dust
+    exa
+    fd
+    gimp
+    glow
+    fira-code
+    fira-code-symbols
+    libreoffice
+    ncdu
+    ripgrep
+    rnix-lsp
+    rustup
+    papirus-icon-theme
+    python310
+    tdesktop
+    tldr
+    tree
+    unzip
+    vlc
+    xsel
+  ];
+
+  haskellPkgs = with pkgs.haskellPackages; [
+    ghc
+    haskell-language-server
+    ormolu
+    hoogle
+    stack
+  ];
+
+in
 {
   imports = [
     ./bat.nix
@@ -12,9 +52,23 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
+
     bat.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     gnome-terminal.enable = true;
+
     tmux.enable = true;
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     zsh.enable = true;
   };
 
@@ -24,23 +78,5 @@
   gtk.theme.name = "Dracula";
   gtk.iconTheme.name = "Papirus-Dark";
 
-  home.packages = with pkgs; [
-    gnome3.gnome-tweak-tool
-
-    gnomeExtensions.dash-to-panel
-
-    gnome.dconf-editor
-
-    dracula-theme
-    papirus-icon-theme
-
-    fira-code
-    fira-code-symbols
-
-    ripgrep
-    rustup
-
-    unzip
-    xclip
-  ];
+  home.packages = defaultPkgs ++ haskellPkgs;
 }

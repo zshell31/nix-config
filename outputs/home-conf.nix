@@ -11,13 +11,7 @@ in
 
     stateVersion = "21.11";
     configuration = { config, pkgs, ... }:
-      let
-        overlay-unstable = final: prev: {
-          unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
-        };
-      in
       {
-        # nixpkgs.overlays = [ overlay-unstable ];
 	nixpkgs.config.allowUnfree = true;
 
 	imports = [
