@@ -13,11 +13,11 @@ in
     };
 
     "org/gnome/desktop/interface" = {
-      document-font-name = "Fira Code 12";
+      document-font-name = "FiraCode Nerd Font 12";
       font-antialiasing = "grayscale";
       font-hinting = "slight";
-      font-name = "Fira Code 12";
-      monospace-font-name = "Fira Code 12";
+      font-name = "FiraCode Nerd Font 12";
+      monospace-font-name = "FiraCode Nerd Font Mono Light 12";
       show-battery-percentage = true;
     };
 
@@ -41,7 +41,7 @@ in
 
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
-      titlebar-font = "Fira Code 12";
+      titlebar-font = "FiraCode Nerd Font 12";
     };
 
     "org/gnome/nautilus/icon-view" = {

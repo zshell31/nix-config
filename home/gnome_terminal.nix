@@ -8,7 +8,7 @@
 	default = true;
 	visibleName = "Dracula";
 	cursorShape = "ibeam";
-	font = "FiraCode 15";
+	font = "FiraCode Nerd Font 15";
 	showScrollbar = true;
 	allowBold = true;
 	transparencyPercent = 20;

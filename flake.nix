@@ -18,7 +18,7 @@
     {
       homeConfigurations = (
         import ./outputs/home-conf.nix {
-          inherit system inputs nixpkgs home-manager;
+          inherit system inputs nixpkgs nixpkgs-unstable home-manager;
         }
       );
 

@@ -1,4 +1,4 @@
-{ system, nixpkgs, home-manager, ... }:
+{ system, nixpkgs, nixpkgs-unstable, home-manager, ... }:
 
 let
   username = "evgeny";
@@ -11,11 +11,24 @@ in
 
     stateVersion = "21.11";
     configuration = { config, pkgs, ... }:
+      let
+        overlay-unstable = final: prev: {
+          unstable = nixpkgs-unstable.legacyPackages.${system};
+        };
+      in
       {
-	nixpkgs.config.allowUnfree = true;
+        nixpkgs.config = {
+          allowUnfree = true;
+          packageOverrides = pkgs: {
+            nix-direnv = pkgs.nix-direnv.override {
+              nix = pkgs.nixUnstable;
+            };
+          };
+        };
+        nixpkgs.overlays = [ overlay-unstable ];
 
-	imports = [
-	  ../home/home.nix
+        imports = [
+          ../home/home.nix
         ];
       };
   };
