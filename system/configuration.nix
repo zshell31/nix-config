@@ -58,7 +58,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.evgeny = {
    isNormalUser = true;
-   extraGroups  = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+   extraGroups  = [ "wheel" "networkmanager" "docker" ]; # Enable ‘sudo’ for the user.
    shell        = pkgs.zsh;
   };
 
