@@ -13,7 +13,13 @@ in
     configuration = { config, pkgs, ... }:
       let
         overlay-unstable = final: prev: {
-          unstable = nixpkgs-unstable.legacyPackages.${system};
+          # unstable = nixpkgs-unstable.legacyPackages.${system};
+          unstable = import nixpkgs-unstable {
+              inherit system;
+              config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+                "viber"
+              ];
+            };
         };
       in
       {

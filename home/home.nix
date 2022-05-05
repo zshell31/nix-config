@@ -33,6 +33,7 @@ let
     xsel
 
     unstable.rust-analyzer
+    unstable.viber
   ];
 
   clangPkgs = with pkgs.llvmPackages_11; [
