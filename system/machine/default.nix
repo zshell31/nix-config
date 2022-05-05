@@ -27,6 +27,7 @@
 	splashMode = "stretch";
 	version = 2;
 	device = "nodev";
+	splashImage = "/home/evgeny/nix-config/imgs/grub.jpg";
 	extraEntries = ''
 	  menuentry "Reboot" {
 	    reboot
