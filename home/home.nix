@@ -36,7 +36,7 @@ let
     unstable.viber
   ];
 
-  clangPkgs = with pkgs.llvmPackages_11; [
+  clangPkgs = with pkgs.llvmPackages_12; [
     libcxxabi
     libcxxClang
     libcxxStdenv
