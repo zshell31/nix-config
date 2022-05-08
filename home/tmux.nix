@@ -11,7 +11,7 @@
       {
 	plugin = dracula;
 	extraConfig = ''
-	  set -g @dracula-plugins "cpu-usage"
+	  set -g @dracula-plugins " "
 	  set -g @dracula-show-flags true
 	  set -g @dracula-show-powerline true
 	  set -g @dracula-refresh-rate 10

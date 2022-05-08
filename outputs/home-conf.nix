@@ -26,6 +26,7 @@ in
         nixpkgs.config = {
           allowUnfree = true;
           packageOverrides = pkgs: {
+            # https://github.com/nix-community/nix-direnv/issues/122#issuecomment-994154785
             nix-direnv = pkgs.nix-direnv.override {
               nix = pkgs.nixUnstable;
             };

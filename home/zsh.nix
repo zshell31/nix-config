@@ -41,21 +41,19 @@ in
       ZSH_CACHE_DIR="${config.xdg.cacheHome}/oh-my-zsh"
 
       if [[ ! -d "${customDir}" ]]; then
-	mkdir -p "${customDir}"
+	      mkdir -p "${customDir}"
       fi
       if [[ ! -d "${customPluginsDir}" ]]; then
-	mkdir -p "${customPluginsDir}"
+	      mkdir -p "${customPluginsDir}"
       fi
       if [[ ! -d "${customThemesDir}" ]]; then
-	mkdir -p "${customThemesDir}"
+	      mkdir -p "${customThemesDir}"
       fi
 
       if [[ ! -L "${customThemesDir}/${draculaTheme}" ]]; then
-	ln -s "${draculaThemePath}" "${customThemesDir}/${draculaTheme}"
+	      ln -s "${draculaThemePath}" "${customThemesDir}/${draculaTheme}"
       fi
-    '';
 
-    initExtra = ''
       plugins=(
         git
         vi-mode

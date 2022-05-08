@@ -2,6 +2,8 @@
 
 let
   defaultPkgs = with pkgs; [
+    bear
+    clang_13
     cmake
     gnome3.gnome-tweak-tool
     gnomeExtensions.dash-to-panel
@@ -16,6 +18,8 @@ let
     file
     gimp
     glow
+    gnumake
+    nix-tree
     ( pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
     libreoffice
     ncdu
@@ -32,14 +36,10 @@ let
     vlc
     xsel
 
+    unstable.clang-tools
+    unstable.joplin-desktop
     unstable.rust-analyzer
     unstable.viber
-  ];
-
-  clangPkgs = with pkgs.llvmPackages_12; [
-    libcxxabi
-    libcxxClang
-    libcxxStdenv
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -76,6 +76,21 @@ in
       nix-direnv.enable = true;
     };
 
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+      defaultCommand = "fd --type file --follow";
+      defaultOptions = [
+        "--height 30%"
+        "--layout=reverse"
+        "--color=dark"
+        "--color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f"
+        "--color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7"
+      ];
+      fileWidgetCommand = "fd --type file --follow";
+      fileWidgetOptions = [ "--preview 'head {}'" ];
+    };
+
     gnome-terminal.enable = true;
 
     starship = {
@@ -99,5 +114,5 @@ in
   gtk.theme.name = "Dracula";
   gtk.iconTheme.name = "Papirus-Dark";
 
-  home.packages = defaultPkgs ++ clangPkgs ++ haskellPkgs ++ nodePkgs;
+  home.packages = defaultPkgs ++ haskellPkgs ++ nodePkgs;
 }

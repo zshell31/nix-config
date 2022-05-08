@@ -51,7 +51,13 @@ in
     "org/gnome/shell" = {
       disabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
       enabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
-      favorite-apps = [ "org.gnome.Terminal.desktop" "firefox.desktop" "org.gnome.Nautilus.desktop" ];
+      favorite-apps = [
+        "org.gnome.Terminal.desktop"
+        "firefox.desktop"
+        "org.gnome.Nautilus.desktop"
+        "@joplinapp-desktop.desktop"
+        "telegramdesktop.desktop"
+      ];
     };
 
     "org/gnome/shell/extensions/dash-to-panel" = {
