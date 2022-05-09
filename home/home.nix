@@ -19,6 +19,7 @@ let
     gimp
     glow
     gnumake
+    inetutils
     nix-tree
     ( pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
     libreoffice
