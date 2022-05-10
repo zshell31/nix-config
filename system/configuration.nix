@@ -93,6 +93,7 @@
   
   programs = {
     zsh.enable = true;
+    steam.enable = true;
   };
 
   # List services that you want to enable:

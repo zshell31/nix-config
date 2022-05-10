@@ -2,7 +2,7 @@
   description = "Home Manager (dotfiles) and NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/21.11";
+    nixpkgs.url = "nixpkgs/nixos-21.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
