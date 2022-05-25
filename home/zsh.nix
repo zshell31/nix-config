@@ -69,6 +69,8 @@ in
       ZSH_CUSTOM="$HOME/zsh_custom"
       ZSH_THEME="dracula"
 
+      export PATH="$HOME/.cargo/bin:$PATH"
+
       source $ZSH/oh-my-zsh.sh
     '';
   };

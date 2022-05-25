@@ -12,25 +12,20 @@ in
     stateVersion = "21.11";
     configuration = { config, pkgs, ... }:
       let
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+            "viber"
+          ];
+        };
         overlay-unstable = final: prev: {
-          # unstable = nixpkgs-unstable.legacyPackages.${system};
-          unstable = import nixpkgs-unstable {
-              inherit system;
-              config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-                "viber"
-              ];
-            };
+          inherit unstable;
+          nix-direnv = unstable.nix-direnv;
         };
       in
       {
         nixpkgs.config = {
           allowUnfree = true;
-          # packageOverrides = pkgs: {
-          #   # https://github.com/nix-community/nix-direnv/issues/122#issuecomment-994154785
-          #   nix-direnv = pkgs.nix-direnv.override {
-          #     nix = pkgs.nixUnstable;
-          #   };
-          # };
         };
         nixpkgs.overlays = [ overlay-unstable ];
 

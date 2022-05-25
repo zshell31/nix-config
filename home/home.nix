@@ -8,6 +8,7 @@ let
     gnome3.gnome-tweak-tool
     gnomeExtensions.dash-to-panel
     gnome.dconf-editor
+    gparted
     docker-compose
     dive
     dracula-theme
@@ -30,15 +31,19 @@ let
     papirus-icon-theme
     patchelf
     python310
+    shadowsocks-libev
     tdesktop
     tldr
     tree
     unzip
+    virt-manager
     vlc
     xsel
 
     unstable.clang-tools
+    unstable.firefox
     unstable.joplin-desktop
+    unstable.qbittorrent
     unstable.rust-analyzer
     unstable.viber
   ];
