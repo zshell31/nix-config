@@ -24,9 +24,6 @@ in
         };
       in
       {
-        nixpkgs.config = {
-          allowUnfree = true;
-        };
         nixpkgs.overlays = [ overlay-unstable ];
 
         imports = [

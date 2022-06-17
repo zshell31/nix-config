@@ -5,7 +5,7 @@ let
     bear
     clang_13
     cmake
-    gnome3.gnome-tweak-tool
+    gnome3.gnome-tweaks
     gnomeExtensions.dash-to-panel
     gnome.dconf-editor
     gparted
@@ -21,6 +21,7 @@ let
     glow
     gnumake
     inetutils
+    jre
     nix-tree
     ( pkgs.nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
     libreoffice
@@ -39,13 +40,15 @@ let
     virt-manager
     vlc
     xsel
+    qucs-s
+    quartus-prime-lite
 
     unstable.clang-tools
-    unstable.firefox
     unstable.joplin-desktop
     unstable.qbittorrent
     unstable.rust-analyzer
     unstable.viber
+    unstable.firefox
   ];
 
   haskellPkgs = with pkgs.haskellPackages; [
@@ -62,12 +65,17 @@ let
 
 in
 {
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "quartus-prime-lite-unwrapped"
+  ];
+
   imports = [
     ./bat.nix
     ./dconf.nix
     ./gnome_terminal.nix
     ./tmux.nix
     ./zsh.nix
+    ./vscode.nix
   ];
 
   programs = {
@@ -112,6 +120,8 @@ in
     };
 
     zsh.enable = true;
+
+    vscode.enable = true;
   };
 
   fonts.fontconfig.enable = true;

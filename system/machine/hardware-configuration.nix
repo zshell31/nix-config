@@ -13,6 +13,13 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+    ];
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/838a9916-87bc-4393-adfc-04a3f6534451";
       fsType = "ext4";

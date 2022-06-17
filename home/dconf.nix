@@ -13,6 +13,8 @@ in
     };
 
     "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      cursor-theme = "Dracula-cursors";
       document-font-name = "FiraCode Nerd Font 12";
       font-antialiasing = "grayscale";
       font-hinting = "slight";
@@ -49,8 +51,9 @@ in
     };
 
     "org/gnome/shell" = {
-      disabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
-      enabled-extensions = [ "dash-to-panel@jderose9.github.com" ];
+      disable-user-extensions = false;
+      disabled-extensions = [];
+      enabled-extensions = [ "dash-to-panel@jderose9.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" ];
       favorite-apps = [
         "org.gnome.Terminal.desktop"
         "firefox.desktop"
@@ -88,6 +91,10 @@ in
       trans-use-custom-opacity = true;
       tray-padding = -1;
       window-preview-title-position = "TOP";
+    };
+
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Dracula";
     };
   };
 }

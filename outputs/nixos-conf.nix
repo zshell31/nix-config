@@ -14,7 +14,7 @@
         { 
           nixpkgs.overlays = [ overlay-unstable ]; 
           environment.systemPackages = with pkgs; [
-            unstable.neovim
+            neovim
           ];
         }
       )
