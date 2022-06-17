@@ -2,9 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, nixpkgs, ... }:
 
 {
+  nix.registry.nixpkgs.flake = nixpkgs;
+
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 

@@ -30,6 +30,7 @@ in
       hms = "home-manager switch";
       cat = "bat";
       j = "z";
+      code = "codium";
     };
 
     localVariables = {

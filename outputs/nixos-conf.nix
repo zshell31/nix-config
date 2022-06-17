@@ -1,9 +1,9 @@
-{ lib, system, nixpkgs-unstable, ... }:
+{ inputs, lib, system, nixpkgs-unstable, ... }:
 
 {
   home = lib.nixosSystem {
     inherit system;
-    specialArgs = { };
+    specialArgs = inputs;
     modules = [
       ({ config, pkgs, ... }:
         let

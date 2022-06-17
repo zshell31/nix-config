@@ -25,7 +25,7 @@
       nixosConfigurations = (
         import ./outputs/nixos-conf.nix {
           inherit (nixpkgs) lib;
-          inherit system nixpkgs-unstable;
+          inherit system inputs nixpkgs-unstable;
         }
       );
     };

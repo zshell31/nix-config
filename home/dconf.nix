@@ -60,6 +60,7 @@ in
         "org.gnome.Nautilus.desktop"
         "@joplinapp-desktop.desktop"
         "telegramdesktop.desktop"
+        "codium.desktop"
       ];
     };
 
