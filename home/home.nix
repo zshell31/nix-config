@@ -42,6 +42,8 @@ let
     xsel
     qucs-s
     quartus-prime-lite
+    wineWowPackages.stable
+    winetricks
 
     unstable.clang-tools
     unstable.joplin-desktop
